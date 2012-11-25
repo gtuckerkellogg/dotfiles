@@ -108,7 +108,7 @@ function aread () {
 }
 
 #-------------------
-# Personnal Aliases
+# Personal Aliases
 #-------------------
 
 alias rm='rm -i'
@@ -152,7 +152,6 @@ alias ec=emacsclient       # let the server run emacs
  function ll(){ ls -l -G "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
                 egrep -v "^d|total "; }
 
-
 #-------------------------------------------------------------
 # tailoring 'less'
 #-------------------------------------------------------------
@@ -176,7 +175,7 @@ export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
 function xtitle()      # Adds some text in the terminal frame.
 {
     case "$TERM" in
-        *term | rxvt)
+        *term* | rxvt)
             echo -n -e "\033]0;$*\007" ;;
         *)
             ;;
