@@ -75,10 +75,6 @@ esac
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
-##
-# Your previous /Users/gtuckerkellogg/.bash_profile file was backed up as /Users/gtuckerkellogg/.bash_profile.macports-saved_2012-10-30_at_20:49:30
-##
-
 echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
 #plutil -convert xml1 .MacOSX/environment.plist 
