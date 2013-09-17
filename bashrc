@@ -18,6 +18,7 @@
 
 export TERM=xterm-256color
 
+
 function get_xserver ()
 {
     case $TERM in
@@ -85,8 +86,6 @@ CYAN='\[\033[1;36m\]'
 NC='\[\033[0m\]'              # No Color
 # --> Nice. Has the same effect as using "ansi.sys" in DOS.
 
-
-
 # Some interactive aliases
 
 alias rm='rm -i'
@@ -98,7 +97,7 @@ export PS1="\[$(tput bold)$(tput setaf 4)\]\n[\u:\w] \[$(tput sgr0)\]"
 export CDPATH=.:~:~/Dropbox:~/Dropbox/_support
 
 # Looks best on a terminal with black background.....
-echo -e "This is BASH ${BASH_VERSION%.*} - DISPLAY on $DISPLAY\n"
+echo -e "HAI! This is BASH ${BASH_VERSION%.*} - DISPLAY on $DISPLAY\n"
 date
 
 alias acroread='/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'
@@ -110,11 +109,11 @@ function aread () {
 #-------------------
 # Personal Aliases
 #-------------------
+# -> Prevents accidentally clobbering files.
 
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
-# -> Prevents accidentally clobbering files.
 alias mkdir='mkdir -p'
 
 alias h='history'
@@ -162,7 +161,7 @@ export EDITOR='emacsclient -t'
 export LESSCHARSET='latin1'
 export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
    # Use this if lesspipe.sh exists
-export LESS='-i -N -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
+export LESS='-i -n -w  -z-4 -g -e -M -X -F -R -P%t?f%f \
 :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
 
@@ -227,12 +226,19 @@ function hideHiddenFiles ()
      defaults read com.apple.Finder AppleShowAllFiles NO
 }
 
-source ${HOME}/.gitcompletion
+# requires brew install git bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    . `brew --prefix`/etc/bash_completion
+fi
+
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 export PS1='\n\[\033[1;32m\]\u@\h\[\033[0m\]\n\[\033[1;34m\][\W\[\033[1;34m\]$(__git_ps1 "\[\033[1;31m\]-(git:%s)")\[\033[1;34m\]\[\033[1;34m\]]\[\033[0m\] '
 
 
-#export PS1="\n${CYAN}\u@\h\n${BLUE}[\W"'$(__git_ps1 "\[\033[1;31m\] (git:%s)")'"${BLUE}] ${NC}"
 
+# COUCHDB
 
+alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
+alias start_couch='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
+alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
