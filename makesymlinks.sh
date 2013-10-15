@@ -45,6 +45,12 @@ echo -n "${BLUE}Changing to the ${SOURCEDIR} directory ..."
 cd $SOURCEDIR
 echo "done${WHITE}"
 
-exit 0 
+echo $files
 
+echo "${BLUE}Moving any existing dotfiles from ~ to $olddir"
 
+for file in $files; do
+    mv ~/.$file ~/dotfiles_old/
+    echo "${RED}Creating symlink to $file in home directory."
+    ln -s ${SOURCEDIR}/${file} ~/.${file}
+done
