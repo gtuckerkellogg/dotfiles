@@ -1,5 +1,5 @@
 # my $HOME/.bashrc file
-# Last modified Time-stamp: <2012-03-17 22:50:47 gtuckerkellogg>
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
 #
 # This file is read (normally) by interactive shells only.
 # Here is the place to define your aliases, functions and
@@ -77,13 +77,15 @@ export HISTIGNORE="&:bg:fg:ll:h"
 export HOSTFILE=$HOME/.hosts    # Put list of remote hosts in ~/.hosts ...
 
 # Define some colors first:
-red='\[\033[0;31m\]'
-RED='\[\033[1;31m\]'
-blue='\[\033[0;34m\]'
-BLUE='\[\033[1;34m\]'
-cyan='\[\033[0;36m\]'
-CYAN='\[\033[1;36m\]'
-NC='\[\033[0m\]'              # No Color
+red="$(tput sgr0)$(tput setaf 1)" #  red
+green="$(tput sgr0)$(tput setaf 2)"
+blue="$(tput sgr0)$(tput setaf 4)"
+white="$(tput sgr0)$(tput setaf 7)"
+RED="$(tput bold)$(tput setaf 1)" #  bold red
+GREEN="$(tput bold)$(tput setaf 2)"
+BLUE="$(tput bold)$(tput setaf 4)"
+WHITE="$(tput bold)$(tput setaf 7)"
+
 # --> Nice. Has the same effect as using "ansi.sys" in DOS.
 
 # Some interactive aliases
@@ -93,6 +95,7 @@ alias m=more
 alias e='emacsclient -t'
 alias ec='emacsclient'
 export PS1="\[$(tput bold)$(tput setaf 4)\]\n[\u:\w] \[$(tput sgr0)\]"
+alias mutt='cd ~/Desktop && mutt'
 
 export CDPATH=.:~:~/Dropbox:~/Dropbox/_support
 
@@ -233,7 +236,14 @@ fi
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
-export PS1='\n\[\033[1;32m\]\u@\h\[\033[0m\]\n\[\033[1;34m\][\W\[\033[1;34m\]$(__git_ps1 "\[\033[1;31m\]-(git:%s)")\[\033[1;34m\]\[\033[1;34m\]]\[\033[0m\] '
+
+if [ -z "$INSIDE_EMACS" ] ; then 
+
+    export PS1='\n\[\033[1;32m\]\u@\h\[\033[0m\]\n\[\033[1;34m\][\W\[\033[1;34m\]$(__git_ps1 "\[\033[1;31m\]-(git:%s)")\[\033[1;34m\]\[\033[1;34m\]]\[\033[0m\] '
+#    export PS1="\n\${GREEN}\u@\h\n${BLUE}[\W$(__git_ps1 '-(git:%s)')]${WHITE} "
+else
+    export PS1='\h:\W \u\$ '
+fi
 
 
 

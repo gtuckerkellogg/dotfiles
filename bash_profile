@@ -19,6 +19,7 @@ export CLASSPATH=~/Library/Clojure/lib
 # Put my bowtie indices here
 
 export BOWTIE_INDEXES=/var/bowtie
+export BOWTIE2_INDEXES=/var/bowtie2
 
 export DROPBOX=~/Dropbox
 export REFDIR=${DROPBOX}/_reference
@@ -27,10 +28,10 @@ export FORTRAN=gfortran
 
 export BIBINPUTS=${REFDIR}/bib/bibtex
 
-export PERL5LIB=~/lib/perl5/
+export PERL5sLIB=~/lib/perl5/
 
-export TEXMFHOME=~/Dropbox/lib/texmf:~/Library/texmf
-export TEXDOC=~/Dropbox/lib/texmf/doc//
+export TEXMFHOME=~/Dropbox/lib/texmf
+export TEXDOC=~/Dropbox/lib/texmf
 
 export NODE_PATH=/usr/local/lib/node_modules
 
@@ -75,12 +76,18 @@ esac
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
+##
+# Your previous /Users/gtuckerkellogg/.bash_profile file was backed up as /Users/gtuckerkellogg/.bash_profile.macports-saved_2012-10-30_at_20:49:30
+##
+
 echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
 #plutil -convert xml1 .MacOSX/environment.plist 
 
 source ~/perl5/perlbrew/etc/bashrc
 perlbrew use perl-5.18.0
+
+export ORG_HOME=~/.emacs.d/org
 
 
 
