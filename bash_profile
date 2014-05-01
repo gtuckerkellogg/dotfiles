@@ -3,7 +3,10 @@
 eval `/usr/libexec/path_helper -s`
 
 export PATH=.:${HOME}/bin:/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:/usr/local/sbin:/usr/local/mysql/bin:${PATH}:
+
+
 PATH=/Applications/Emacs.App/Contents/MacOS:/Applications/Emacs.App/Contents/MacOS/bin:${PATH}
+
 PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
 PATH=${PATH}:/usr/local/share/npm/bin
 #PATH=/usr/local/share/python:${PATH}
@@ -40,26 +43,27 @@ export CLOJURESCRIPT_HOME=${HOME}/lib/clojurescript
 export PYTHONPATH=${DROPBOX}/lib/python
 
 
-export R_LIBS_USER=${HOME}/lib/R
+export XML_CATALOG_FILES=/usr/local/etc/xml/catalog
+
+
+export R_LIBS_USER=${HOME}/Dropbox/lib/R
 
 
 # Setting up the VirtualEnv
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export VIRTUALENV_DISTRIBUTE=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#export PIP_REQUIRE_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+# export VIRTUALENV_DISTRIBUTE=true
+# export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_RESPECT_VIRTUALENV=true
+# export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
     source /usr/local/share/python/virtualenvwrapper.sh
 else
     echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
-
-
 
 
 export LC_ALL=en_US.UTF-8
@@ -69,16 +73,10 @@ if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
 fi
 
-case "$-" in 
-    *i*) source ${HOME}/.bashrc
-esac
 
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
-##
-# Your previous /Users/gtuckerkellogg/.bash_profile file was backed up as /Users/gtuckerkellogg/.bash_profile.macports-saved_2012-10-30_at_20:49:30
-##
 
 echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
@@ -89,7 +87,12 @@ perlbrew use perl-5.18.0
 
 export ORG_HOME=~/.emacs.d/org
 
+export RAN_BASH_PROFILE="TRUE"
 
+case "$-" in 
+    *i*) source ${HOME}/.bashrc
+esac
 
-# COUCHDB
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+
 
