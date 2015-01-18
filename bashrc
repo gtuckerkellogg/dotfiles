@@ -96,6 +96,12 @@ WHITE="$(tput bold)$(tput setaf 7)"
 
 alias rm='rm -i'
 alias m=more
+
+if [[ $(uname) -eq "Darwin" ]] ; then
+    alias emacs=~/Applications/Emacs.App/Contents/MacOS/Emacs
+    alias emacsclient=~/Applications/Emacs.App/Contents/MacOS/bin/emacsclient
+fi
+
 alias e='emacsclient -t'
 alias ec='emacsclient'
 
@@ -250,7 +256,12 @@ function hideHiddenFiles ()
 # requires brew install git bash_completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+elif [ -d $(brew --prefix)/etc/bash_completion.d ] ; then
+    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
 fi
+    
+
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
