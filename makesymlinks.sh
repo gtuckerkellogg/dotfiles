@@ -11,7 +11,7 @@ SOURCEDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 #SOURCEDIR=$(dirname $SOURCEDIR)
 PROGNAME=$(basename ${BASH_SOURCE[0]})
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="bashrc bash_profile"    # list of files/folders to symlink in homedir
+files="Rprofile bashrc bash_profile"    # list of files/folders to symlink in homedir
 
 
 ##########

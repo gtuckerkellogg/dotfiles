@@ -1,20 +1,22 @@
 #!/bin/bash
 
-eval `/usr/libexec/path_helper -s`
+if [ $(uname) = 'Darwin' ] ; then 
+    eval `/usr/libexec/path_helper -s`
+    export PATH=/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:/usr/local/sbin:/usr/local/mysql/bin:${PATH}:
+    PATH=/Applications/Emacs.App/Contents/MacOS:/Applications/Emacs.App/Contents/MacOS/bin:${PATH}
+    PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
+    PATH=${PATH}:/usr/local/share/npm/bin
+    #PATH=/usr/local/share/python:${PATH}
+    export CLASSPATH=~/Library/Clojure/lib
+    export FORTRAN=gfortran
+fi
 
-export PATH=.:${HOME}/bin:/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:/usr/local/sbin:/usr/local/mysql/bin:${PATH}:
-PATH=/Applications/Emacs.App/Contents/MacOS:/Applications/Emacs.App/Contents/MacOS/bin:${PATH}
-PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
-PATH=${PATH}:/usr/local/share/npm/bin
-#PATH=/usr/local/share/python:${PATH}
+PATH=.:${HOME}/bin:${PATH}
 
-
-#export LD_LIBRARY_PATH=/usr/local/mysql/lib/
 
 export TEMP=/var/tmp/
 
 export TMP=$TEMP
-export CLASSPATH=~/Library/Clojure/lib
 
 # Put my bowtie indices here
 
@@ -23,8 +25,6 @@ export BOWTIE2_INDEXES=/var/bowtie2
 
 export DROPBOX=~/Dropbox
 export REFDIR=${DROPBOX}/_reference
-
-export FORTRAN=gfortran
 
 export BIBINPUTS=${REFDIR}/bib/bibtex
 
@@ -38,7 +38,6 @@ export NODE_PATH=/usr/local/lib/node_modules
 export CLOJURESCRIPT_HOME=${HOME}/lib/clojurescript
 
 export PYTHONPATH=${DROPBOX}/lib/python
-
 
 export R_LIBS_USER=${HOME}/lib/R
 
@@ -55,19 +54,14 @@ export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
     source /usr/local/share/python/virtualenvwrapper.sh
-else
-    echo "WARNING: Can't find virtualenvwrapper.sh"
 fi
-
-
-
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-fi
+# if [ -f `brew --prefix`/etc/bash_completion ]; then
+#     . `brew --prefix`/etc/bash_completion
+# fi
 
 case "$-" in 
     *i*) source ${HOME}/.bashrc
@@ -76,20 +70,14 @@ esac
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
-##
-# Your previous /Users/gtuckerkellogg/.bash_profile file was backed up as /Users/gtuckerkellogg/.bash_profile.macports-saved_2012-10-30_at_20:49:30
-##
 
-echo setenv PATH \"$PATH\" >| ~/.launchd.conf
-#defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
-#plutil -convert xml1 .MacOSX/environment.plist 
+# echo setenv PATH \"$PATH\" >| ~/.launchd.conf
+# #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
+# #plutil -convert xml1 .MacOSX/environment.plist 
 
-source ~/perl5/perlbrew/etc/bashrc
-perlbrew use perl-5.18.0
+# source ~/perl5/perlbrew/etc/bashrc
+# perlbrew use perl-5.18.0
 
-export ORG_HOME=~/.emacs.d/org
+export ORG_HOME=~/.emacs.d/elpa/org-20140331
 
-
-
-# COUCHDB
 
