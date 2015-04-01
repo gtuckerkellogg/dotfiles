@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -111,7 +112,165 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
 fi
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+# my $HOME/.bashrc file
+# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
+#
+# This file is read (normally) by interactive shells only.
+# Here is the place to define your aliases, functions and
+# other interactive features like your prompt.
+#
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+fi
+=======
+#  -*- sh -*- 
+
+>>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
 # my $HOME/.bashrc file
 # Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
 #
@@ -330,6 +489,21 @@ function kless ()
 }
 
 
+function compile-ssh-config() {
+    cat <<EOF  >|  ~/.ssh/config
+# --* This file is automatically generated and overwritten by login  *--
+# --* Put configuration into a file in ~/.ssh/config.d instead. *--
+EOF
+    for file in ~/.ssh/config.d/*; do
+printf "\n# --- $file ---\n" >> ~/.ssh/config
+        cat $file >> ~/.ssh/config
+    done
+}
+
+if hash ssh  2>&-  && [ -d ~/.ssh/config.d  ] ; then
+    compile-ssh-config
+fi
+
 ### MacOSX 
 
 if [ $(uname) = "Darwin" ] ; then 
@@ -348,7 +522,12 @@ function hideHiddenFiles ()
 # requires brew install git bash_completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
     . `brew --prefix`/etc/bash_completion
+elif [ -d $(brew --prefix)/etc/bash_completion.d ] ; then
+    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
+    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
 fi
+    
+
 
 fi
 
@@ -365,8 +544,15 @@ fi
 
 
 
-# COUCHDB
+# COUCHDB, probably needs fixing
 
 alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
 alias start_couch='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
 alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
+
+
+function ever() { 
+    cp $@ ~/Desktop/toEvernote
+}
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

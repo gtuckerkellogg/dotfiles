@@ -13,6 +13,9 @@ fi
 
 PATH=.:${HOME}/bin:${PATH}
 
+export PATH=.:${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}:
+
+PATH=.:${HOME}/bin:${PATH}
 
 export TEMP=/var/tmp/
 
@@ -44,17 +47,18 @@ export R_LIBS_USER=${HOME}/lib/R
 
 # Setting up the VirtualEnv
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export VIRTUALENV_DISTRIBUTE=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#export PIP_REQUIRE_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+# export VIRTUALENV_DISTRIBUTE=true
+# export PIP_VIRTUALENV_BASE=$WORKON_HOME
+# export PIP_REQUIRE_VIRTUALENV=true
+# export PIP_RESPECT_VIRTUALENV=true
+# export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
     source /usr/local/share/python/virtualenvwrapper.sh
 fi
+
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -70,6 +74,8 @@ esac
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
+<<<<<<< HEAD
+=======
 
 # echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 # #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
