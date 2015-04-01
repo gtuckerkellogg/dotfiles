@@ -13,9 +13,6 @@ fi
 
 PATH=.:${HOME}/bin:${PATH}
 
-export PATH=.:${HOME}/bin:/usr/local/bin:/usr/local/sbin:${PATH}:
-
-PATH=.:${HOME}/bin:${PATH}
 
 export TEMP=/var/tmp/
 
@@ -23,15 +20,15 @@ export TMP=$TEMP
 
 # Put my bowtie indices here
 
-export BOWTIE_INDEXES=/var/bowtie
-export BOWTIE2_INDEXES=/var/bowtie2
+export BOWTIE_INDEXES=/media/gtk/DATAPART1/bowtie
+export BOWTIE2_INDEXES=/media/gtk/DATAPART1/bowtie2
 
 export DROPBOX=~/Dropbox
 export REFDIR=${DROPBOX}/_reference
 
 export BIBINPUTS=${REFDIR}/bib/bibtex
 
-export PERL5sLIB=~/lib/perl5/
+export PERL5LIB=~/lib/perl5/
 
 export TEXMFHOME=~/Dropbox/lib/texmf
 export TEXDOC=~/Dropbox/lib/texmf
@@ -47,18 +44,17 @@ export R_LIBS_USER=${HOME}/lib/R
 
 # Setting up the VirtualEnv
 export WORKON_HOME=$HOME/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-# export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-# export VIRTUALENV_DISTRIBUTE=true
-# export PIP_VIRTUALENV_BASE=$WORKON_HOME
-# export PIP_REQUIRE_VIRTUALENV=true
-# export PIP_RESPECT_VIRTUALENV=true
-# export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
+export VIRTUALENV_DISTRIBUTE=true
+export PIP_VIRTUALENV_BASE=$WORKON_HOME
+#export PIP_REQUIRE_VIRTUALENV=true
+export PIP_RESPECT_VIRTUALENV=true
+export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
 
 if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
     source /usr/local/share/python/virtualenvwrapper.sh
 fi
-
 
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
@@ -74,8 +70,6 @@ esac
 
 PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 
-<<<<<<< HEAD
-=======
 
 # echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 # #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
@@ -84,6 +78,6 @@ PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
 # source ~/perl5/perlbrew/etc/bashrc
 # perlbrew use perl-5.18.0
 
-export ORG_HOME=~/.emacs.d/elpa/org-20140331
+#export ORG_HOME=~/.emacs.d/org
 
 
