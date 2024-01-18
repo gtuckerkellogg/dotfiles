@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+if [ $(uname) = "Linux" ] ; then
+    export RIGHT_DISPLAY="DP-2"
+    export LEFT_DISPLAY="DP-3"
+    alias open='xdg-open'
+    alias portrait='xrandr --output $LEFT_DISPLAY --auto --pos 0x720 --output $RIGHT_DISPLAY --auto --rotate left --pos 1920x0'
+    alias landscape='xrandr --output $LEFT_DISPLAY --auto --pos 0x0 --output $RIGHT_DISPLAY --auto --rotate normal --pos 1920x0'
+    alias mirror='xrandr --output $LEFT_DISPLAY --auto --pos 0x0 --output $RIGHT_DISPLAY --auto --rotate normal --pos 0x0'
+    alias student='xrandr --output $RIGHT_DISPLAY --off'
+fi
+
+

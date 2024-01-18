@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -6,7 +6,7 @@
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
-      *) return;;
+    *) return;;
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
@@ -66,11 +66,11 @@ unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
-    ;;
-*)
-    ;;
+    xterm*|rxvt*)
+        PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+        ;;
+    *)
+        ;;
 esac
 
 # enable color support of ls and also add handy aliases
@@ -106,179 +106,13 @@ fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
-if ! shopt -oq posix; then
-  if [ -f /usr/share/bash-completion/bash_completion ]; then
-    . /usr/share/bash-completion/bash_completion
-  elif [ -f /etc/bash_completion ]; then
-    . /etc/bash_completion
-  fi
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
+if ! shopt -oq posix ; then
+    if [ -f /usr/share/bash-completion/bash_completion ]; then
+        . /usr/share/bash-completion/bash_completion
+    elif [ -f /etc/bash_completion ]; then
+        . /etc/bash_completion
+    fi
 fi
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-fi
-=======
-#  -*- sh -*- 
-
->>>>>>> 8559a03f9381d4a9f1ff8d22c514b96c695f493b
-# my $HOME/.bashrc file
-# Last modified Time-stamp: <2013-10-15 12:23:56 gtk>
-#
-# This file is read (normally) by interactive shells only.
-# Here is the place to define your aliases, functions and
-# other interactive features like your prompt.
-#
-
 
 #-------------------------------------------------------------
 # Automatic setting of $DISPLAY (if not set already).
@@ -295,7 +129,7 @@ export TERM=xterm-256color
 function get_xserver ()
 {
     case $TERM in
-       xterm )
+        xterm )
             XSERVER=$(who am i | awk '{print $NF}' | tr -d ')''(' )
             # Ane-Pieter Wieringa suggests the following alternative:
             # I_AM=$(who am i)
@@ -305,7 +139,7 @@ function get_xserver ()
             XSERVER=${XSERVER%%:*}
             ;;
         aterm | rxvt)
-        # Find some code that works here. ...
+            # Find some code that works here. ...
             ;;
     esac
 }
@@ -313,7 +147,7 @@ function get_xserver ()
 if [ -z ${DISPLAY:=""} ]; then
     get_xserver
     if [[ -z ${XSERVER}  || ${XSERVER} == $(hostname) || \
-      ${XSERVER} == "unix" ]]; then
+        ${XSERVER} == "unix" ]]; then
         DISPLAY=":0.0"          # Display on local host.
     else
         DISPLAY=${XSERVER}:0.0  # Display on remote host.
@@ -353,17 +187,22 @@ export HOSTFILE=$HOME/.hosts    # Put list of remote hosts in ~/.hosts ...
 red="$(tput sgr0)$(tput setaf 1)" #  red
 green="$(tput sgr0)$(tput setaf 2)"
 blue="$(tput sgr0)$(tput setaf 4)"
+magenta="$(tput sgr0)$(tput setaf 5)"
 white="$(tput sgr0)$(tput setaf 7)"
 RED="$(tput bold)$(tput setaf 1)" #  bold red
-GREEN="$(tput bold)$(tput setaf 2)"
+GREEN="$(tput smso)$(tput setaf 2)"
+GREEN='\[\033[1;32m\]'
+
 BLUE="$(tput bold)$(tput setaf 4)"
 WHITE="$(tput bold)$(tput setaf 7)"
+MAGENTA="$(tput bold)$(tput setaf 5)"
 
 # --> Nice. Has the same effect as using "ansi.sys" in DOS.
 
 # Some interactive aliases
 
 alias rm='rm -i'
+
 alias m=more
 alias e='emacsclient -t'
 alias ec='emacsclient'
@@ -378,9 +217,6 @@ date
 
 alias acroread='/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'
 
-function aread () {
-/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader $* &
-}
 
 #-------------------
 # Personal Aliases
@@ -396,14 +232,13 @@ alias h='history'
 alias j='jobs -l'
 alias which='type -a'
 
-alias kpseless='less $(kpsewhich $*)'
 alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias print='/usr/bin/lp -o nobanner -d $LPDEST'
-            # Assumes LPDEST is defined (default printer)
+# Assumes LPDEST is defined (default printer)
 alias pjet='enscript -h -G -fCourier9 -d $LPDEST'
-            # Pretty-print using enscript
+# Pretty-print using enscript
 
 alias du='du -kh'       # Makes a more readable output.
 alias df='df -kh'
@@ -417,15 +252,18 @@ alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size, biggest last
 alias lc='ls -ltcr'        # sort by and show change time, most recent last
 alias lu='ls -ltur'        # sort by and show access time, most recent last
-alias lt='ls -ltr'         # sort by date, most recent last
+alias ltr='ls -ltr'         # sort by date, most recent last
+alias lt='ls -lt'         # sort by date, most recent first
 alias lm='ls -al |more'    # pipe through 'more'
 alias lr='ls -lR'          # recursive ls
 alias tree='tree -Csu'     # nice alternative to 'recursive ls'
 alias ec=emacsclient       # let the server run emacs 
 
 # If your version of 'ls' doesn't support --group-directories-first try this:
- function ll(){ ls -l -G "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
-                egrep -v "^d|total "; }
+function ll(){ ls -l -G "$@"| egrep "^d" ; ls -lXB "$@" 2>&-| \
+    egrep -v "^d|total "; }
+
+function kpseless () { less $(kpsewhich "$*"); }
 
 #-------------------------------------------------------------
 # tailoring 'less'
@@ -433,10 +271,10 @@ alias ec=emacsclient       # let the server run emacs
 
 alias more='less'
 export PAGER=less
-export EDITOR='emacsclient -t'
+export EDITOR='emacsclient'
 export LESSCHARSET='latin1'
 export LESSOPEN='|/usr/bin/lesspipe.sh %s 2>&-'
-   # Use this if lesspipe.sh exists
+# Use this if lesspipe.sh exists
 export LESS='-i -n -w  -z-4 -g -e -M -X -R -P%t?f%f \
 :stdin .?pb%pb\%:?lbLine %lb:?bbByte %bb:-...'
 
@@ -481,55 +319,28 @@ function repeat ()
 }
 
 
-## some TeX/LaTeX functions
-
-function kless () 
-{ 
-    less `kpsewhich $1 || echo $1` 
-}
-
-
-function compile-ssh-config() {
-    cat <<EOF  >|  ~/.ssh/config
-# --* This file is automatically generated and overwritten by login  *--
-# --* Put configuration into a file in ~/.ssh/config.d instead. *--
-EOF
-    for file in ~/.ssh/config.d/*; do
-printf "\n# --- $file ---\n" >> ~/.ssh/config
-        cat $file >> ~/.ssh/config
-    done
-}
-
-if hash ssh  2>&-  && [ -d ~/.ssh/config.d  ] ; then
-    compile-ssh-config
-fi
-
 ### MacOSX 
 
 if [ $(uname) = "Darwin" ] ; then 
 
-function seeHiddenFiles ()
-{
-     defaults read com.apple.Finder AppleShowAllFiles YES
-}
+    function seeHiddenFiles ()
+    {
+        defaults read com.apple.Finder AppleShowAllFiles YES
+    }
 
 
-function hideHiddenFiles ()
-{
-     defaults read com.apple.Finder AppleShowAllFiles NO
-}
+    function hideHiddenFiles ()
+    {
+        defaults read com.apple.Finder AppleShowAllFiles NO
+    }
 
-# requires brew install git bash_completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-    . `brew --prefix`/etc/bash_completion
-elif [ -d $(brew --prefix)/etc/bash_completion.d ] ; then
-    . `brew --prefix`/etc/bash_completion.d/git-prompt.sh
-    . `brew --prefix`/etc/bash_completion.d/git-completion.bash
-fi
-    
-
+    # requires brew install git bash_completion
+    if [ -f `brew --prefix`/etc/bash_completion ]; then
+        . `brew --prefix`/etc/bash_completion
+    fi
 
 fi
+
 
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -537,22 +348,142 @@ export GIT_PS1_SHOWUNTRACKEDFILES=1
 if [ -z "$INSIDE_EMACS" ] ; then 
 
     export PS1='\n\[\033[1;32m\]\u@\h\[\033[0m\]\n\[\033[1;34m\][\W\[\033[1;34m\]$(__git_ps1 "\[\033[1;31m\]-(git:%s)")\[\033[1;34m\]\[\033[1;34m\]]\[\033[0m\] '
-#    export PS1="\n\${GREEN}\u@\h\n${BLUE}[\W$(__git_ps1 '-(git:%s)')]${WHITE} "
-else
-    export PS1='\h:\W \u\$ '
 fi
 
 
+## ZOMBIES
 
-# COUCHDB, probably needs fixing
+function clear_zombies () {
+    zombie_pids=$(ps h -A -ostat,pid | awk '!x[$0]++ && /^[Zz]/{ print $2 }' )
+    if [[ -n "$zombie_pids" ]] ; then
+	echo clearing $(echo $pids | wc -w) zombies
+	kill -HUP $zombie_pids
+    else
+	echo no zombies
+    fi
+    
+}
+
+
+function zombie_parents () {
+    zombie_ppids=$(ps h -A -ostat,pid | awk '!x[$0]++ && /^[Zz]/{ print $2 }' )    
+    if [[ -n "$zombie_ppids" ]] ; then
+	ps -p $zombie_ppids
+    else
+	echo no zombies
+    fi
+
+    }
+
+
+# COUCHDB
 
 alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
 alias start_couch='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
 alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
 
 
-function ever() { 
-    cp $@ ~/Desktop/toEvernote
+export NO_AT_BRIDGE=1
+
+
+
+# map 
+. .xcape-maps
+
+
+
+# deduplicate path entries
+PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '!arr[$0]++')
+
+
+# added by Miniconda3 installer
+# export PATH="/home/gtk/miniconda3/bin:$PATH"  # commented out by conda initialize
+
+`snakemake --bash-completion`
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/gtk/miniconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/gtk/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/gtk/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/gtk/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+
+
+## vterm
+
+if [[ "$INSIDE_EMACS" = 'vterm' ]] \
+       && [[ -n ${EMACS_VTERM_PATH} ]] \
+       && [[ -f ${EMACS_VTERM_PATH}/etc/emacs-vterm-bash.sh ]]; then
+
+   vterm_printf() {
+       if [ -n "$TMUX" ] && ([ "${TERM%%-*}" = "tmux" ] || [ "${TERM%%-*}" = "screen" ]); then
+           # Tell tmux to pass the escape sequences through
+           printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+       elif [ "${TERM%%-*}" = "screen" ]; then
+           # GNU screen (screen, screen-256color, screen-256color-bce)
+           printf "\eP\e]%s\007\e\\" "$1"
+       else
+           printf "\e]%s\e\\" "$1"
+       fi
+   }
+
+   if [[ "$INSIDE_EMACS" = 'vterm' ]]; then
+       function clear() {
+           vterm_printf "51;Evterm-clear-scrollback";
+           tput clear;
+       }
+   fi
+
+   PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND; }"'echo -ne "\033]0;${HOSTNAME}:${PWD}\007"'
+
+   vterm_prompt_end(){
+       vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+   }
+   PS1=$PS1'\[$(vterm_prompt_end)\]'
+
+fi
+   
+
+MANPATH=/usr/local/texlive/2023/texmf-dist/doc/man:${MANPATH}
+INFOATH=/usr/local/texlive/2023/texmf-dist/doc/info:${INFOPATH}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+
+man() {
+    LESS_TERMCAP_md=$'\e[01;31m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[01;44;33m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[01;32m' \
+    command man "$@"
 }
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+
+hostname=$(hostname)
+host_bashrc="${HOME}/src/dotfiles/hosts/${hostname}_rc"
+if [ -f "${host_bashrc}" ] ; then
+    echo "found it"
+    source "${host_bashrc}"
+fi

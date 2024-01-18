@@ -1,32 +1,28 @@
 #!/bin/bash
 
-if [ $(uname) = 'Darwin' ] ; then 
-    eval `/usr/libexec/path_helper -s`
-    export PATH=/usr/local/bin:/usr/local/Cellar/ruby/1.9.3-p0/bin:/usr/local/sbin:/usr/local/mysql/bin:${PATH}:
-    PATH=/Applications/Emacs.App/Contents/MacOS:/Applications/Emacs.App/Contents/MacOS/bin:${PATH}
-    PATH=/usr/local/Cellar/ruby/1.9.3-p194/bin:$PATH
-    PATH=${PATH}:/usr/local/share/npm/bin
-    #PATH=/usr/local/share/python:${PATH}
-    export CLASSPATH=~/Library/Clojure/lib
-    export FORTRAN=gfortran
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH=.:${HOME}/.local/bin:${PATH}
 fi
 
-PATH=.:${HOME}/bin:${PATH}
+if [ -d "$HOME/.cabal/bin" ] ; then
+    PATH=.:${HOME}/bin:${HOME}/.cabal/bin:${PATH}
+else
+    PATH=.:${HOME}/bin:${PATH}
+fi
 
-
-export TEMP=/var/tmp/
+export DOCKER_BUILDKIT=1
+export TEMP=/tmp
 
 export TMP=$TEMP
 
 # Put my bowtie indices here
 
-export BOWTIE_INDEXES=/media/gtk/DATAPART1/bowtie
-export BOWTIE2_INDEXES=/media/gtk/DATAPART1/bowtie2
+export ESHELL=/bin/bash
 
 export DROPBOX=~/Dropbox
 export REFDIR=${DROPBOX}/_reference
 
-export BIBINPUTS=${REFDIR}/bib/bibtex
+export BIBINPUTS=.:${REFDIR}/bib/bibtex
 
 export PERL5LIB=~/lib/perl5/
 
@@ -37,47 +33,58 @@ export NODE_PATH=/usr/local/lib/node_modules
 
 export CLOJURESCRIPT_HOME=${HOME}/lib/clojurescript
 
-export PYTHONPATH=${DROPBOX}/lib/python
-
 export R_LIBS_USER=${HOME}/lib/R
 
-
-# Setting up the VirtualEnv
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
-export VIRTUALENVWRAPPER_VIRTUALENV_ARGS='--no-site-packages'
-export VIRTUALENV_DISTRIBUTE=true
-export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#export PIP_REQUIRE_VIRTUALENV=true
-export PIP_RESPECT_VIRTUALENV=true
-export PIP_DOWNLOAD_CACHE=$HOME/.pip/cache
-
-if [[ -r /usr/local/share/python/virtualenvwrapper.sh ]]; then
-    source /usr/local/share/python/virtualenvwrapper.sh
-fi
-
-export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
-
-# if [ -f `brew --prefix`/etc/bash_completion ]; then
-#     . `brew --prefix`/etc/bash_completion
-# fi
+export LC_ALL=C
 
 case "$-" in 
     *i*) source ${HOME}/.bashrc
 esac
 
-
-PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+function slimpath() { 
+    PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+    PATH=$(echo "$PATH" | sed s/::/:/g | sed s/:$//)
+}
 
 
 # echo setenv PATH \"$PATH\" >| ~/.launchd.conf
 # #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
 # #plutil -convert xml1 .MacOSX/environment.plist 
 
-# source ~/perl5/perlbrew/etc/bashrc
-# perlbrew use perl-5.18.0
+if [ -d ~/perl5/perlbrew/etc ] ; then 
+    source ~/perl5/perlbrew/etc/bashrc
+    source ~/perl5/perlbrew/etc/perlbrew-completion.bash
+fi
 
-#export ORG_HOME=~/.emacs.d/org
+if [ -f "/usr/share/modules/init/bash" ] ; then 
+    source /usr/share/modules/init/bash
+fi
+
+if [ -d ~/miniconda3/bin ] ; then
+    export PATH="/home/gtk/miniconda3/bin:$PATH"
+fi
+
+if [ -d ~/go/bin ] ; then
+    export PATH="${HOME}/go/bin:${PATH}"
+fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
+
+hostname=$(hostname)
+host_specific_profile="${HOME}/src/dotfiles/hosts/${hostname}_profile"
+if [ -f "${host_specific_profile}" ] ; then
+    echo "found it"
+    source "${host_specific_profile}"
+fi
+
+if [ -f "${HOME}/.secrets.sh" ] ; then 
+    source ~/.secrets.sh
+fi
+
+
+eval "$(${HOME}/.rbenv/bin/rbenv init - bash)"
+
+slimpath
 
 

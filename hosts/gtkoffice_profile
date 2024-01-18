@@ -1,0 +1,10 @@
+PATH=/usr/local/texlive/2023/bin/x86_64-linux:$PATH
+
+export BOWTIE_INDEXES=/media/gtk/DATAPART1/bowtie
+export BOWTIE2_INDEXES=/media/gtk/DATAPART1/bowtie2
+
+
+## for nextflow
+
+export NXF_JAVA_HOME=/usr/lib/jvm/java-1.17.0-openjdk-amd64
+
