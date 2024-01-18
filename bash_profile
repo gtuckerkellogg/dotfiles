@@ -48,15 +48,6 @@ function slimpath() {
 }
 
 
-# echo setenv PATH \"$PATH\" >| ~/.launchd.conf
-# #defaults write $HOME/.MacOSX/environment PATH \"$PATH\"
-# #plutil -convert xml1 .MacOSX/environment.plist 
-
-if [ -d ~/perl5/perlbrew/etc ] ; then 
-    source ~/perl5/perlbrew/etc/bashrc
-    source ~/perl5/perlbrew/etc/perlbrew-completion.bash
-fi
-
 if [ -f "/usr/share/modules/init/bash" ] ; then 
     source /usr/share/modules/init/bash
 fi

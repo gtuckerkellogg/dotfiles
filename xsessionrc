@@ -1,0 +1,43 @@
+#!/bin/bash
+
+. ~/.bash_profile
+alias open=xdg-open
+
+
+alias fixd="xrandr --output DP-3 --mode 1920x1080  --pos 760x0 --output HDMI-0 --mode 3440x1440 --pos 0x1080 --rotate normal"
+fixd
+
+
+# Screen 0: minimum 8 x 8, current 3440 x 2520, maximum 32767 x 32767
+# DP-0 disconnected (normal left inverted right x axis y axis)
+# DP-1 disconnected (normal left inverted right x axis y axis)
+# DP-2 disconnected (normal left inverted right x axis y axis)
+# DP-3 connected 1920x1080+648+0 (normal left inverted right x axis y axis) 510mm x 287mm
+#    1920x1080     60.00*+  59.94    50.00    29.97    25.00    23.98  
+#    1920x1200     59.88  
+#    1600x1200     60.00  
+#    1280x1024     60.02  
+#    1280x800      59.81  
+#    1280x720      60.00    59.94    50.00  
+#    1024x768      60.00  
+#    800x600       60.32  
+#    720x576       50.00  
+#    720x480       59.94  
+#    640x480       59.94    59.93  
+# HDMI-0 connected primary 3440x1440+0+1080 (normal left inverted right x axis y axis) 795mm x 334mm
+#    3440x1440     60.00*+  99.99    50.00  
+#    2560x1080    100.00    59.94  
+#    1920x1080     60.00    59.94    50.00  
+#    1720x1440     60.00  
+#    1680x1050     59.95  
+#    1600x900      60.00  
+#    1440x900      59.89  
+#    1280x1024     75.02    60.02  
+#    1280x720      60.00    59.94    50.00  
+#    1024x768      75.03    60.00  
+#    800x600       75.00    60.32  
+#    720x576       50.00  
+#    720x480       59.94  
+#    640x480       75.00    59.94    59.93  
+# DP-4 disconnected (normal left inverted right x axis y axis)
+# DP-5 disconnected (normal left inverted right x axis y axis)

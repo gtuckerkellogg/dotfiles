@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
@@ -24,9 +25,6 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
-#shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -162,9 +160,9 @@ export DISPLAY
 
 ulimit -S -c 0          # Don't want any coredumps.
 set -o notify
-set -o noclobber
-set -o ignoreeof
-#set -o nounset
+set -o noclobber # don't allow redirection to overwrite existing files
+set -o ignoreeof # the shell will not exit on reading EOF
+#set -o nounset  # treat unset variables as an error when using when substituting
 #set -o xtrace          # Useful for debuging.
 
 # Enable options:
@@ -201,7 +199,7 @@ MAGENTA="$(tput bold)$(tput setaf 5)"
 
 # Some interactive aliases
 
-alias rm='rm -i'
+
 
 alias m=more
 alias e='emacsclient -t'
@@ -214,9 +212,6 @@ export CDPATH=.:~:~/Dropbox:~/Dropbox/_support
 # Looks best on a terminal with black background.....
 echo -e "HAI! This is BASH ${BASH_VERSION%.*} - DISPLAY on $DISPLAY\n"
 date
-
-alias acroread='/Applications/Adobe\ Reader.app/Contents/MacOS/AdobeReader'
-
 
 #-------------------
 # Personal Aliases
@@ -246,7 +241,7 @@ alias df='df -kh'
 #-------------------------------------------------------------
 # The 'ls' family (this assumes you use a recent GNU ls)
 #-------------------------------------------------------------
-alias ls='ls -hF '  # add colors for filetype recognition
+alias ls='ls -hF --color=auto'  # add colors for filetype recognition
 alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size, biggest last
