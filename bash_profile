@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 if [ -d "$HOME/.local/bin" ] ; then
     PATH=.:${HOME}/.local/bin:${PATH}
@@ -14,8 +14,6 @@ export DOCKER_BUILDKIT=1
 export TEMP=/tmp
 
 export TMP=$TEMP
-
-# Put my bowtie indices here
 
 export ESHELL=/bin/bash
 
@@ -38,15 +36,23 @@ export R_LIBS_USER=${HOME}/lib/R
 export LANG=en_US.UTF-8
 export LC_ALL=C
 
-case "$-" in 
-    *i*) source ${HOME}/.bashrc
-esac
 
-function slimpath() { 
-    PATH=$(echo "$PATH" | awk -v RS=':' -v ORS=":" '!a[$1]++')
-    PATH=$(echo "$PATH" | sed s/::/:/g | sed s/:$//)
+joinByChar() {
+  local IFS="$1"
+  shift
+  echo "$*"
 }
 
+function slimpath() {
+    local string="$PATH";
+    readarray -td: a <<< ".:${string}";
+    for i in ${!a[@]}; do [[ -z ${a[i]} ]] && unset a[i]; done
+    for i in ${!a[@]}; do a[i]=${a[i]%/} ; done
+    string=$(joinByChar : "${a[@]}")
+    string=$(echo "$string" | awk -v RS=':' -v ORS=":" '!a[$1]++')
+    string=${string%:}
+    export PATH="${string}"
+}
 
 if [ -f "/usr/share/modules/init/bash" ] ; then 
     source /usr/share/modules/init/bash
@@ -78,4 +84,8 @@ eval "$(${HOME}/.rbenv/bin/rbenv init - bash)"
 
 slimpath
 
+
+case "$-" in 
+    *i*) source ${HOME}/.bashrc
+esac
 
