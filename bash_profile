@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-if [ -d "$HOME/.local/bin" ] ; then
-    PATH=.:${HOME}/.local/bin:${PATH}
-fi
 
-if [ -d "$HOME/.cabal/bin" ] ; then
-    PATH=.:${HOME}/bin:${HOME}/.cabal/bin:${PATH}
-else
-    PATH=.:${HOME}/bin:${PATH}
-fi
+for D in .local/bin \
+	 bin \
+      	 .cabal/bin \
+	 miniconda3/bin \
+	 go/bin \
+	 .cargo/bin ; do 
+    [ -d "${HOME}/${D}" ] && PATH="${HOME}/${D}:$PATH"
+done
+
 
 export DOCKER_BUILDKIT=1
 export TEMP=/tmp
@@ -54,24 +55,19 @@ function slimpath() {
     export PATH="${string}"
 }
 
+
+if [ -d ~/perl5/perlbrew/etc ] ; then 
+    source ~/perl5/perlbrew/etc/bashrc
+    source ~/perl5/perlbrew/etc/perlbrew-completion.bash
+fi
+
 if [ -f "/usr/share/modules/init/bash" ] ; then 
     source /usr/share/modules/init/bash
 fi
 
-if [ -d ~/miniconda3/bin ] ; then
-    export PATH="/home/gtk/miniconda3/bin:$PATH"
-fi
-
-if [ -d ~/go/bin ] ; then
-    export PATH="${HOME}/go/bin:${PATH}"
-fi
-
-export PATH="$HOME/.cargo/bin:$PATH"
-
 hostname=$(hostname)
 host_specific_profile="${HOME}/src/dotfiles/hosts/${hostname}_profile"
 if [ -f "${host_specific_profile}" ] ; then
-    echo "found it"
     source "${host_specific_profile}"
 fi
 
@@ -79,8 +75,10 @@ if [ -f "${HOME}/.secrets.sh" ] ; then
     source ~/.secrets.sh
 fi
 
+if [ -f "${HOME}/.rbenv/bin/rbenv" ] ; then 
+    eval "$(${HOME}/.rbenv/bin/rbenv init - bash)"
+fi
 
-eval "$(${HOME}/.rbenv/bin/rbenv init - bash)"
 
 slimpath
 

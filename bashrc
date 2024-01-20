@@ -199,9 +199,7 @@ MAGENTA="$(tput bold)$(tput setaf 5)"
 
 # Some interactive aliases
 
-
-
-alias m=more
+alias m=less
 alias e='emacsclient -t'
 alias ec='emacsclient'
 export PS1="\[$(tput bold)$(tput setaf 4)\]\n[\u:\w] \[$(tput sgr0)\]"
@@ -227,7 +225,6 @@ alias h='history'
 alias j='jobs -l'
 alias which='type -a'
 
-alias ..='cd ..'
 alias path='echo -e ${PATH//:/\\n}'
 alias libpath='echo -e ${LD_LIBRARY_PATH//:/\\n}'
 alias print='/usr/bin/lp -o nobanner -d $LPDEST'
@@ -314,29 +311,6 @@ function repeat ()
 }
 
 
-### MacOSX 
-
-if [ $(uname) = "Darwin" ] ; then 
-
-    function seeHiddenFiles ()
-    {
-        defaults read com.apple.Finder AppleShowAllFiles YES
-    }
-
-
-    function hideHiddenFiles ()
-    {
-        defaults read com.apple.Finder AppleShowAllFiles NO
-    }
-
-    # requires brew install git bash_completion
-    if [ -f `brew --prefix`/etc/bash_completion ]; then
-        . `brew --prefix`/etc/bash_completion
-    fi
-
-fi
-
-
 export GIT_PS1_SHOWDIRTYSTATE=1
 export GIT_PS1_SHOWUNTRACKEDFILES=1
 
@@ -371,30 +345,30 @@ function zombie_parents () {
     }
 
 
-# COUCHDB
-
-alias restart_couch='/usr/bin/sudo launchctl stop org.apache.couchdb'
-alias start_couch='/usr/bin/sudo launchctl load -w /Library/LaunchDaemons/org.apache.couchdb.plist'
-alias stop_couch='/usr/bin/sudo launchctl unload /Library/LaunchDaemons/org.apache.couchdb.plist'
-
-
 export NO_AT_BRIDGE=1
 
 
 
-# map 
-. .xcape-maps
+# map
 
+if [[ -f "${HOME}/.xcape-maps" ]] ; then
+    source .xcape-maps
+fi
 
 
 # deduplicate path entries
 PATH=$(printf %s "$PATH" | awk -v RS=: -v ORS=: '!arr[$0]++')
 
 
+## set up snakemake completion if it is installed
+
+if command -v snakemake %>//dev/null ; then
+    $(snakemake --bash-completion)
+fi
+
+
 # added by Miniconda3 installer
 # export PATH="/home/gtk/miniconda3/bin:$PATH"  # commented out by conda initialize
-
-`snakemake --bash-completion`
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -461,7 +435,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+[ -d "$HOME/.rvm/bin" ]  && PATH="$PATH:$HOME/.rvm/bin"
 
 
 man() {
@@ -479,6 +453,12 @@ man() {
 hostname=$(hostname)
 host_bashrc="${HOME}/src/dotfiles/hosts/${hostname}_rc"
 if [ -f "${host_bashrc}" ] ; then
-    echo "found it"
     source "${host_bashrc}"
+fi
+
+
+uname=$(uname)
+uname_bashrc="${HOME}/src/dotfiles/hosts/${uname}_rc"
+if [ -f "${uname_bashrc}" ] ; then
+    source "${uname_bashrc}"
 fi

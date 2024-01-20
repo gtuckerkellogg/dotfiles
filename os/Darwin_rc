@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+## MacOS-specific bashrc commands
+
+function seeHiddenFiles () {
+    defaults read com.apple.Finder AppleShowAllFiles YES
+}
+
+
+function hideHiddenFiles () {
+    defaults read com.apple.Finder AppleShowAllFiles NO
+}
+
+# requires brew install git bash_completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+    source `brew --prefix`/etc/bash_completion
+fi
