@@ -6,7 +6,6 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 DOTFILES=$( realpath "$(dirname $SCRIPT_DIR)" )
 export XDG_CONFIG_HOME="${XDG_CONFIG_HOME:=${HOME}/.config}"
-echo $XDG_CONFIG_HOME
 set -e
 
 echo ''
@@ -126,7 +125,6 @@ install_dotfiles () {
 
   find -H "$DOTFILES" -maxdepth 2 -name 'links.prop' -not -path '*.git*' | while read linkfile
   do
-    echo "linkfile is $linkfile"
     cat "$linkfile" | while read line
     do
         local src dst dir
