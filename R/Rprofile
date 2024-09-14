@@ -1,0 +1,17 @@
+#!/usr/bin/env R
+
+.First <- function() {
+    local({
+        r <- getOption("repos")
+        r["CRAN"] <- "https://cran.rstudio.com/"
+        options(repos = r,
+                browserNLdisabled = TRUE,
+                editor="emacsclient",
+                deparse.max.lines = 2,
+                stringsAsFactors = FALSE)
+    })}
+                
+    
+if (interactive()) {
+    suppressMessages(require(devtools))
+}

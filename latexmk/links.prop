@@ -1,0 +1,3 @@
+${DOTFILES}/latexmk/latexmkrc=${XDG_CONFIG_HOME}/latexmk/latexmkrc
+
+
