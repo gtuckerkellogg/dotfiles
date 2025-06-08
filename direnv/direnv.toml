@@ -1,3 +1,2 @@
 [whitelist]
-prefix = [ "/home/gtk/Dropbox/_support/" ]
- 
+prefix = [ "/home/gtk/Dropbox/_support/", "/mnt/c/Users/gtuck/Dropbox/_support/ ]" ]
