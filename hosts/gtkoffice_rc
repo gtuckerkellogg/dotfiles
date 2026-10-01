@@ -1,13 +1,104 @@
-#!/usr/bin/env bash
+# ~/.gtkoffice_rc -- display layouts for gtk's dual-monitor setup.
+#
+# Source this file from your shell rc (e.g. ~/.bashrc or ~/.zshrc):
+#     . ~/.gtkoffice_rc
+# Then call one of: landscape, portrait, mirror, student.
+#
+# Background: the NVIDIA proprietary driver ignores `--panning 0x0` and
+# re-enables panning across the whole framebuffer. The workaround is to set
+# each output's panning AND tracking rectangle equal to its own visible area
+# -- panning still technically "on" but with nowhere to pan to. See
+# _no_pan_spec() below.
+#
+# Every output-specific parameter (--mode, --pos, --rotate, --scale,
+# --panning) is set explicitly in every function, because xrandr state is
+# sticky: a --scale from a previous `mirror` call will silently carry over
+# into the next `landscape` call and push the right monitor past the
+# framebuffer boundary. Same for --rotate, --panning, and --pos. Reset
+# everything, every time.
+#
+# --fb is also set explicitly in every function, not auto-calculated. The
+# panning rectangles are set before xrandr's auto-fb kicks in, so if the
+# previous framebuffer was smaller than the new panning area, RRSetPanning
+# fails with BadMatch.
 
-if [ $(uname) = "Linux" ] ; then
-    export RIGHT_DISPLAY="DP-2"
-    export LEFT_DISPLAY="DP-3"
-    alias open='xdg-open'
-    alias portrait='xrandr --output $LEFT_DISPLAY --auto --pos 0x720 --output $RIGHT_DISPLAY --auto --rotate left --pos 1920x0'
-    alias landscape='xrandr --output $LEFT_DISPLAY --auto --pos 0x0 --output $RIGHT_DISPLAY --auto --rotate normal --pos 1920x0'
-    alias mirror='xrandr --output $LEFT_DISPLAY --auto --pos 0x0 --output $RIGHT_DISPLAY --auto --rotate normal --pos 0x0'
-    alias student='xrandr --output $RIGHT_DISPLAY --off'
-fi
+# ---- Display configuration ----------------------------------------------
 
+export LEFT_DISPLAY="DP-2"
+LEFT_X=2560
+LEFT_Y=1440
 
+export RIGHT_DISPLAY="DP-1"
+RIGHT_X=1920
+RIGHT_Y=1200
+
+# ---- Helpers ------------------------------------------------------------
+
+# Build a --panning spec whose panning and tracking rectangles exactly match
+# the monitor's visible area at its position in the framebuffer.
+#
+# Args: width height x_offset y_offset
+_no_pan_spec () {
+    printf '%dx%d+%d+%d/%dx%d+%d+%d/0/0/0/0' \
+        "$1" "$2" "$3" "$4" \
+        "$1" "$2" "$3" "$4"
+}
+
+# ---- Layouts ------------------------------------------------------------
+
+# Side-by-side, both monitors at native resolution, landscape orientation.
+# --fb is set explicitly: without it, if a previous layout (portrait, mirror,
+# student) left the framebuffer smaller than 4480x1440, the panning rectangle
+# for DP-3 would extend past the current framebuffer and fail with BadMatch
+# on RRSetPanning. See xrandr(1): "You typically have to set the screen size
+# with --fb simultaneously."
+landscape () {
+    local fb_w=$(( LEFT_X + RIGHT_X ))
+    local fb_h=$(( LEFT_Y >= RIGHT_Y ? LEFT_Y : RIGHT_Y ))
+    xrandr --fb "${fb_w}x${fb_h}" \
+        --output "$LEFT_DISPLAY"  --primary --mode "${LEFT_X}x${LEFT_Y}" \
+            --pos 0x0 --rotate normal --scale 1x1 \
+            --panning "$(_no_pan_spec "$LEFT_X"  "$LEFT_Y"  0         0)" \
+        --output "$RIGHT_DISPLAY"          --mode "${RIGHT_X}x${RIGHT_Y}" \
+            --pos "${LEFT_X}x0" --rotate normal --scale 1x1 \
+            --panning "$(_no_pan_spec "$RIGHT_X" "$RIGHT_Y" "$LEFT_X" 0)"
+}
+
+# Right monitor rotated 90 degrees counter-clockwise (for tall documents).
+# After --rotate left the right display's visible area is RIGHT_Y wide by
+# RIGHT_X tall, so the panning rectangle uses those swapped dimensions.
+portrait () {
+    local fb_w=$(( LEFT_X + RIGHT_Y ))
+    local fb_h=$(( LEFT_Y >= RIGHT_X ? LEFT_Y : RIGHT_X ))
+    xrandr --fb "${fb_w}x${fb_h}" \
+        --output "$LEFT_DISPLAY"  --primary --mode "${LEFT_X}x${LEFT_Y}" \
+            --pos 0x0 --rotate normal --scale 1x1 \
+            --panning "$(_no_pan_spec "$LEFT_X"  "$LEFT_Y"  0         0)" \
+        --output "$RIGHT_DISPLAY"          --mode "${RIGHT_X}x${RIGHT_Y}" \
+            --pos "${LEFT_X}x0" --rotate left --scale 1x1 \
+            --panning "$(_no_pan_spec "$RIGHT_Y" "$RIGHT_X" "$LEFT_X" 0)"
+}
+
+# Mirror primary's content onto the right monitor, scaling to fit.
+# Aspect ratios differ (16:9 vs 16:10) so expect some stretching.
+mirror () {
+    local sx sy
+    sx=$(awk -v a="$LEFT_X" -v b="$RIGHT_X" 'BEGIN { print a / b }')
+    sy=$(awk -v a="$LEFT_Y" -v b="$RIGHT_Y" 'BEGIN { print a / b }')
+    xrandr --fb "${LEFT_X}x${LEFT_Y}" \
+        --output "$LEFT_DISPLAY"  --primary --mode "${LEFT_X}x${LEFT_Y}" \
+            --pos 0x0 --rotate normal --scale 1x1 \
+            --panning "$(_no_pan_spec "$LEFT_X" "$LEFT_Y" 0 0)" \
+        --output "$RIGHT_DISPLAY"          --mode "${RIGHT_X}x${RIGHT_Y}" \
+            --pos 0x0 --rotate normal --scale "${sx}x${sy}" \
+            --panning "$(_no_pan_spec "$LEFT_X" "$LEFT_Y" 0 0)"
+}
+
+# Primary only, right monitor off (e.g. when presenting to a student).
+student () {
+    xrandr --fb "${LEFT_X}x${LEFT_Y}" \
+        --output "$LEFT_DISPLAY"  --primary --mode "${LEFT_X}x${LEFT_Y}" \
+            --pos 0x0 --rotate normal --scale 1x1 \
+            --panning "$(_no_pan_spec "$LEFT_X" "$LEFT_Y" 0 0)" \
+        --output "$RIGHT_DISPLAY" --off
+}
